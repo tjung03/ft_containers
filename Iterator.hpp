@@ -95,7 +95,7 @@ namespace	ft
 
 		/* Bidirectional */
 		random_access_iterator&	operator--(void) { --this->_p; return (*this); }
-		random_access_iterator	operator--(int) { random_access_iterator	tmp(*this); --this->_p; return (tmp); }
+		random_access_iterator<T>	operator--(int) { random_access_iterator	tmp(*this); --this->_p; return (tmp); }
 
 		/* Random Access */
 		random_access_iterator			operator+(const difference_type n) const { return (random_access_iterator(this->_p + n)); }
@@ -136,15 +136,12 @@ namespace	ft
 
 	public:
 		reverse_iterator(void) : _p(NULL) { }
-		reverse_iterator(iterator_type p) : _p(p) { }
-		reverse_iterator(const reverse_iterator &rhs) : _p(rhs._p) { }
+		explicit reverse_iterator(iterator_type p) : _p(p) { }
+		template <class Iter>
+		reverse_iterator(const reverse_iterator<Iter> &rhs) : _p(rhs._p) { }
 		virtual ~reverse_iterator(void) { }
 
-		reverse_iterator&	operator=(const reverse_iterator &rhs)
-		{
-			this->_p = rhs._p;
-			return (*this);
-		}
+		reverse_iterator&	operator=(const reverse_iterator &rhs) { if (this != rhs) this->_p = rhs._p; return (*this); }
 	};
 }
 
