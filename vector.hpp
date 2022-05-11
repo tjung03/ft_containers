@@ -1,6 +1,7 @@
 #ifndef VECTOR_HPP
 # define VECTOR_HPP
 
+# include <algorithm>
 # include <memory>
 # include "iterator.hpp"
 
@@ -24,14 +25,41 @@ namespace	ft
 		typedef				std::ptrdiff_t							difference_type;
 		typedef				std::size_t								size_type;
 
+	private:
+		pointer			_vecptr;
+		allocator_type	_alloc;
+		size_type		_size;
+		size_type		_capacity;
+
+	public:
 		/* public member function */
-		explicit vector(const allocator_type &alloc = allocator_type());
-		explicit vector(size_type n, const value_type &val = value_type(), const allocator_type &alloc = allocator_type());
+		explicit vector(const allocator_type &alloc = allocator_type())
+			: _alloc(alloc), _size(0), _capacity(0)
+		{
+			this->_vecptr = this->_alloc.allocate(this->_capacity);
+		}
+		
+		explicit vector(size_type n, const value_type &val = value_type(), const allocator_type &alloc = allocator_type())
+			: _alloc(alloc), _size(n), _capacity(n)
+		{
+			this->_vecptr = this->_alloc.allocate(n);
+			this->_alloc.construct(&_vecptr[0], val);
+		}
 
 		template <class InputIterator>
-		vector(InputIterator first, InputIterator last, const allocator_type &alloc = allocator_type());
+		vector(InputIterator first, InputIterator last, const allocator_type &alloc = allocator_type())
+			: _alloc(alloc), _size(last - first), _capacity(last - first)
+		{
+			this->_vecptr = this->_alloc.allocate(this->_capacity);
+			std::copy(first, last, this->begin());
+		}
 
-		vector(const vector &x);
+		vector(const vector &x)
+			: _alloc(x._alloc), _size(x._size), _capacity(x._capacity)
+		{
+			this->_vecptr = this->alloc.allocate(this->_capacity);
+			std::copy(first, last, this->begin());
+		}
 
 		/* non-member function overloads */
 	}; // class Vector template
