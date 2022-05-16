@@ -29,3 +29,5 @@ fclean:		clean
 			@echo "\033[0;31mRemoving executable..."
 			rm -f $(NAME)
 			@echo "\033[0m"
+
+re: 		fclean all

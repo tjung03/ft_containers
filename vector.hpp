@@ -4,6 +4,7 @@
 # include <algorithm>
 # include <memory>
 # include <limits>
+# include <stdexcept>
 # include "iterator.hpp"
 # include "utils.hpp"
 
@@ -82,16 +83,16 @@ namespace	ft
 		// operator=
 		vector&	operator=(const vector &x)
 		{
-			if (x != this)
+			if (&x != this)
 			{
 				for (size_type i = 0; i < this->_size; ++i)
 					this->_alloc.destroy(this->_vecptr + i);
 				this->_alloc.deallocate(this->_vecptr, this->_capacity);
 
-				this->_vecptr = x._alloc.allocate(x._capacity);
-				for (size_type i = 0; i < x._size; ++i)
-					x._alloc.construct(this->_vecptr + i, *(x._vecptr + i));
 				this->_alloc = x._alloc;
+				this->_vecptr = this->_alloc.allocate(x._capacity);
+				for (size_type i = 0; i < x._size; ++i)
+					this->_alloc.construct(this->_vecptr + i, *(x._vecptr + i));
 				this->_size = x._size;
 				this->_capacity = x._capacity;
 			}
@@ -103,10 +104,10 @@ namespace	ft
 		const_iterator			begin(void) const { return (const_iterator(this->_vecptr)); }
 		iterator				end(void) { return (iterator(this->_vecptr + this->_size)); }
 		const_iterator			end(void) const { return (const_iterator(this->_vecptr + this->_size)); }
-		reverse_iterator		rbegin(void) { return (reverse_iterator(iterator(this->_vecptr + this->_size - 1))); }
-		const_reverse_iterator	rbegin(void) const { return (const_reverse_iterator(const_iterator(this->_vecptr + this->_size - 1))); }
-		reverse_iterator		rend(void) { return (reverse_iterator(iterator(this->_vecptr - 1))); }
-		const_reverse_iterator	rend(void) const { return (const_reverse_iterator(const_iterator(this->_vecptr - 1))); }
+		reverse_iterator		rbegin(void) { return (reverse_iterator(iterator(this->_vecptr + this->_size))); }
+		const_reverse_iterator	rbegin(void) const { return (const_reverse_iterator(const_iterator(this->_vecptr + this->_size))); }
+		reverse_iterator		rend(void) { return (reverse_iterator(iterator(this->_vecptr))); }
+		const_reverse_iterator	rend(void) const { return (const_reverse_iterator(const_iterator(this->_vecptr))); }
 
 		// Capacity:
 		size_type	size(void) const { return (this->_size); }
@@ -311,7 +312,7 @@ namespace	ft
 
 		iterator	insert(iterator position, const value_type &val)
 		{
-			difference_type	offset_ = position - this->begin();
+			size_type	offset_ = position - this->begin();
 
 			if (this->_size < this->_capacity)
 			{
@@ -354,7 +355,7 @@ namespace	ft
 					}
 					else
 					{
-						if (i < this->size)
+						if (i < this->_size)
 							this->_alloc.construct(tmp_ + i, *(this->_vecptr + i));
 						else
 							this->_alloc.construct(tmp_ + this->_size, value_type());
@@ -375,7 +376,7 @@ namespace	ft
 
 		void	insert(iterator position, size_type n, const value_type &val)
 		{
-			difference_type	offset_ = position - this->begin();
+			size_type	offset_ = position - this->begin();
 
 			if (this->_size + n <= this->_capacity)
 			{
@@ -428,7 +429,7 @@ namespace	ft
 					}
 					else
 					{
-						if (i < this->size)
+						if (i < this->_size)
 							this->_alloc.construct(tmp_ + i, *(this->_vecptr + i));
 						else
 							this->_alloc.construct(tmp_ + this->_size, value_type());
@@ -449,7 +450,7 @@ namespace	ft
 		void	insert(iterator position, InputIterator first, InputIterator last,
 			typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type* = 0)
 		{
-			difference_type	offset_ = position - this->begin();
+			size_type	offset_ = position - this->begin();
 
 			if (first != last)
 			{
@@ -506,7 +507,7 @@ namespace	ft
 						}
 						else
 						{
-							if (i < this->size)
+							if (i < this->_size)
 								this->_alloc.construct(tmp_ + i, *(this->_vecptr + i));
 							else
 								this->_alloc.construct(tmp_ + this->_size, value_type());
@@ -526,7 +527,7 @@ namespace	ft
 
 		iterator	erase(iterator position)
 		{
-			difference_type	offset_ = position - this->begin();
+			size_type	offset_ = position - this->begin();
 
 			this->_alloc.destroy(this->_vecptr + offset_);
 			for (size_type i = offset_ + 1; i < this->_size; ++i)
@@ -541,7 +542,7 @@ namespace	ft
 
 		iterator	erase(iterator first, iterator last)
 		{
-			difference_type	offset_ = first - this->begin();
+			size_type	offset_ = first - this->begin();
 
 			if (first != last)
 			{
@@ -613,9 +614,9 @@ namespace	ft
 	{
 		if (lhs.size() == rhs.size())
 		{
-			typename vector<T, Alloc>::iterator	first1 = lhs.begin();
-			typename vector<T, Alloc>::iterator	last1 = lhs.end();
-			typename vector<T, Alloc>::iterator	first2 = rhs.begin();
+			typename vector<T, Alloc>::const_iterator	first1 = lhs.begin();
+			typename vector<T, Alloc>::const_iterator	last1 = lhs.end();
+			typename vector<T, Alloc>::const_iterator	first2 = rhs.begin();
 
 			return (equal(first1, last1, first2));
 		}
