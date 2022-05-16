@@ -51,7 +51,8 @@ namespace	ft
 		}
 
 		template <typename InputIterator>
-		vector(InputIterator first, InputIterator last, const allocator_type &alloc = allocator_type())
+		vector(InputIterator first, InputIterator last, const allocator_type &alloc = allocator_type(), \
+				typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type* = 0)
 			: _alloc(alloc), _size(last - first), _capacity(last - first)
 		{
 			this->_vecptr = this->_alloc.allocate(this->_capacity);
@@ -195,7 +196,8 @@ namespace	ft
 
 		// Modifiers:
 		template <typename InputIterator>
-		void	assign(InputIterator first, InputIterator last)
+		void	assign(InputIterator first, InputIterator last, \
+			typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type* = 0)
 		{
 			const size_type	n = last - first;
 
@@ -441,12 +443,11 @@ namespace	ft
 				this->_capacity = tmp_capa_;
 			}
 			this->_size += n;
-
-			return (iterator(this->_vecptr + offset_));
 		}
 
-		template <class InputIterator>
-		void	insert(iterator position, InputIterator first, InputIterator last)
+		template <typename InputIterator>
+		void	insert(iterator position, InputIterator first, InputIterator last,
+			typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type* = 0)
 		{
 			difference_type	offset_ = position - this->begin();
 
@@ -521,8 +522,6 @@ namespace	ft
 				}
 				this->_size += n;
 			}
-
-			return (iterator(this->_vecptr + offset_));
 		}
 
 		iterator	erase(iterator position)
@@ -591,15 +590,22 @@ namespace	ft
 
 	/* non-member function overloads */
 		// relational operators
-		friend bool	operator==(const vector &lhs, const vector &rhs);
-		friend bool	operator!=(const vector &lhs, const vector &rhs);
-		friend bool	operator<(const vector &lhs, const vector &rhs);
-		friend bool	operator<=(const vector &lhs, const vector &rhs);
-		friend bool	operator>(const vector &lhs, const vector &rhs);
-		friend bool	operator>=(const vector &lhs, const vector &rhs);
+		template <class U, class A>
+		friend bool	operator==(const vector<U, A> &lhs, const vector<U, A> &rhs);
+		template <class U, class A>
+		friend bool	operator!=(const vector<U, A> &lhs, const vector<U, A> &rhs);
+		template <class U, class A>
+		friend bool	operator<(const vector<U, A> &lhs, const vector<U, A> &rhs);
+		template <class U, class A>
+		friend bool	operator<=(const vector<U, A> &lhs, const vector<U, A> &rhs);
+		template <class U, class A>
+		friend bool	operator>(const vector<U, A> &lhs, const vector<U, A> &rhs);
+		template <class U, class A>
+		friend bool	operator>=(const vector<U, A> &lhs, const vector<U, A> &rhs);
 
 		// swap
-		friend void	swap(vector &x, vector &y);
+		template <class U, class A>
+		friend void	swap(vector<U, A> &x, vector<U, A> &y);
 	}; // class Vector template
 
 	template <class T, class Alloc>
@@ -607,16 +613,11 @@ namespace	ft
 	{
 		if (lhs.size() == rhs.size())
 		{
-			typename vector<T, Alloc>::iterator	lit = lhs.begin();
-			typename vector<T, Alloc>::iterator	rit = rhs.begin();
-			typename vector<T, Alloc>::iterator	lit_e = lhs.end();
+			typename vector<T, Alloc>::iterator	first1 = lhs.begin();
+			typename vector<T, Alloc>::iterator	last1 = lhs.end();
+			typename vector<T, Alloc>::iterator	first2 = rhs.begin();
 
-			for (; lit != lit_e; ++lit, ++rit)
-			{
-				if (*lit != *rit)
-					return (false)
-			}
-			return (true);
+			return (equal(first1, last1, first2));
 		}
 		return (false);
 	}
