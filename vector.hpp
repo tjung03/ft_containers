@@ -327,6 +327,7 @@ namespace	ft
 						tmp_ = *(this->_vecptr + i);
 						this->_alloc.destroy(this->_vecptr + i);
 						this->_alloc.construct(this->_vecptr + i + 1, tmp_);
+						if (i == 0) break ;
 					}
 					this->_alloc.construct(this->_vecptr + offset_, val);
 				}
@@ -394,6 +395,7 @@ namespace	ft
 						tmp_ = *(this->_vecptr + i);
 						this->_alloc.destroy(this->_vecptr + i);
 						this->_alloc.construct(this->_vecptr + i + n, tmp_);
+						if (i == 0) break ;
 					}
 					for (size_type i = 0; i < n; ++i)
 						this->_alloc.construct(this->_vecptr + offset_ + i, val);
@@ -422,7 +424,7 @@ namespace	ft
 						{
 							for (size_type j = 0; j < n; ++j)
 								this->_alloc.construct(tmp_ + i + j, val);
-							i += n;
+							i += (n - 1);
 						}
 						else if (i > offset_)
 							this->_alloc.construct(tmp_ + i, *(this->_vecptr + i - n));
@@ -472,6 +474,7 @@ namespace	ft
 							tmp_ = *(this->_vecptr + i);
 							this->_alloc.destroy(this->_vecptr + i);
 							this->_alloc.construct(this->_vecptr + i + n, tmp_);
+							if (i == 0) break ;
 						}
 						for (size_type i = 0; i < n; ++i)
 							this->_alloc.construct(this->_vecptr + offset_ + i, *(first + i));
@@ -500,7 +503,7 @@ namespace	ft
 							{
 								for (size_type j = 0; j < n; ++j)
 									this->_alloc.construct(tmp_ + i + j, *(first + j));
-								i += n;
+								i += (n - 1);
 							}
 							else if (i > offset_)
 								this->_alloc.construct(tmp_ + i, *(this->_vecptr + i - n));
