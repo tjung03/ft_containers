@@ -1,7 +1,6 @@
 #ifndef VECTOR_HPP
 # define VECTOR_HPP
 
-# include <algorithm>
 # include <memory>
 # include <limits>
 # include <stdexcept>
@@ -610,7 +609,7 @@ namespace	ft
 		// swap
 		template <class U, class A>
 		friend void	swap(vector<U, A> &x, vector<U, A> &y);
-	}; // class Vector template
+	}; // class vector template
 
 	template <class T, class Alloc>
 	bool	operator==(const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs)
