@@ -13,19 +13,19 @@ namespace	ft
 	class	vector
 	{
 	public:
-		typedef				T										value_type;
-		typedef				Alloc									allocator_type;		// allocator<value_type>
-		typedef typename	allocator_type::reference				reference;			// value_type&
-		typedef typename	allocator_type::const_reference			const_reference;	// const value_type&
-		typedef typename	allocator_type::pointer					pointer;			// value_type*
-		typedef typename	allocator_type::const_pointer			const_pointer;		// const value_type*
+		typedef	T											value_type;
+		typedef	Alloc										allocator_type;		// allocator<value_type>
+		typedef	typename allocator_type::reference			reference;			// value_type&
+		typedef	typename allocator_type::const_reference	const_reference;	// const value_type&
+		typedef	typename allocator_type::pointer			pointer;			// value_type*
+		typedef	typename allocator_type::const_pointer		const_pointer;		// const value_type*
 
-		typedef 			ft::random_access_iterator<T>			iterator;
-		typedef 			ft::const_random_access_iterator<T>		const_iterator;
-		typedef				ft::reverse_iterator<iterator>			reverse_iterator;
-		typedef				ft::reverse_iterator<const_iterator>	const_reverse_iterator;
-		typedef				std::ptrdiff_t							difference_type;
-		typedef				std::size_t								size_type;
+		typedef	ft::vector_iterator<T>						iterator;
+		typedef	ft::const_vector_iterator<T>				const_iterator;
+		typedef	ft::reverse_iterator<iterator>				reverse_iterator;
+		typedef	ft::reverse_iterator<const_iterator>		const_reverse_iterator;
+		typedef	std::ptrdiff_t								difference_type;
+		typedef	std::size_t									size_type;
 
 	private:
 		pointer			_vecptr;
@@ -591,38 +591,12 @@ namespace	ft
 		// Allocator:
 		allocator_type	get_allocator(void) const { return (this->_alloc); }
 
-	/* non-member function overloads */
-		// relational operators
-		template <class U, class A>
-		friend bool	operator==(const vector<U, A> &lhs, const vector<U, A> &rhs);
-		template <class U, class A>
-		friend bool	operator!=(const vector<U, A> &lhs, const vector<U, A> &rhs);
-		template <class U, class A>
-		friend bool	operator<(const vector<U, A> &lhs, const vector<U, A> &rhs);
-		template <class U, class A>
-		friend bool	operator<=(const vector<U, A> &lhs, const vector<U, A> &rhs);
-		template <class U, class A>
-		friend bool	operator>(const vector<U, A> &lhs, const vector<U, A> &rhs);
-		template <class U, class A>
-		friend bool	operator>=(const vector<U, A> &lhs, const vector<U, A> &rhs);
-
-		// swap
-		template <class U, class A>
-		friend void	swap(vector<U, A> &x, vector<U, A> &y);
 	}; // class vector template
 
 	template <class T, class Alloc>
 	bool	operator==(const vector<T, Alloc> &lhs, const vector<T, Alloc> &rhs)
 	{
-		if (lhs.size() == rhs.size())
-		{
-			typename vector<T, Alloc>::const_iterator	first1 = lhs.begin();
-			typename vector<T, Alloc>::const_iterator	last1 = lhs.end();
-			typename vector<T, Alloc>::const_iterator	first2 = rhs.begin();
-
-			return (equal(first1, last1, first2));
-		}
-		return (false);
+		return ((lhs.size() == rhs.size) && (equal(lhs.begin(), lhs.end(), rhs.begin())));
 	}
 
 	template <class T, class Alloc>

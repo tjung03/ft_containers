@@ -122,7 +122,7 @@ namespace	ft
 
 /* ************************************************************************************ */
 /*																						*/
-/*										std::pair										*/
+/*											pair										*/
 /*																						*/
 /* ************************************************************************************ */
 
@@ -153,15 +153,7 @@ namespace	ft
 		template <class U1, class U2>
 		friend bool	operator==(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
 		template <class U1, class U2>
-		friend bool	operator!=(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
-		template <class U1, class U2>
 		friend bool	operator<(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
-		template <class U1, class U2>
-		friend bool	operator<=(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
-		template <class U1, class U2>
-		friend bool	operator>(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
-		template <class U1, class U2>
-		friend bool	operator>=(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);
 	};
 
 	template <class T1, class T2>
@@ -202,7 +194,7 @@ namespace	ft
 
 /* ************************************************************************************ */
 /*																						*/
-/*									std::make_pair										*/
+/*										make_pair										*/
 /*																						*/
 /* ************************************************************************************ */
 

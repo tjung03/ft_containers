@@ -2,9 +2,12 @@ NAME =		ft_containers
 
 CPP = 		c++
 
-CPPFLAGS =	-pedantic -std=c++98 -W -Wall -Wextra -Werror
+#CPPFLAGS =	-g3 -pedantic -std=c++98 -W -Wall -Wextra -Werror
+CPPFLAGS =	-fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
+#CPPFLAGS =	-g3 -fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
+#CPPFLAGS =	-pedantic -std=c++98 -W -Wall -Wextra -Werror
 
-SRCS =		test.cpp
+SRCS =		main.cpp
 
 OBJS =		$(SRCS:.cpp=.o)
 
