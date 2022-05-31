@@ -27,14 +27,14 @@ namespace	ft
 			friend class map;
 
 		protected:
-			key_compare	_comp;
+			key_compare	_value_comp;
 
 		protected:
-			value_compare(key_compare c) : _comp(c) { }
+			value_compare(key_compare c) : _value_comp(c) { }
 
 		public:
 			bool	operator()(const value_type &x, const value_type &y) const
-			{ return (_comp(x.first, y.first)); }
+			{ return (this->_value_comp(x.first, y.first)); }
 		};
 		//////////////////////////////////////////////////////////////////////////
 
@@ -114,7 +114,7 @@ namespace	ft
 		// Element access:
 		mapped_type&	operator[](const key_type &k)
 		{
-			return ((*((this->insert(make_pair(k, mapped_type()))).first)).second);
+			return ((*((this->insert(ft::make_pair(k, mapped_type()))).first)).second);
 		}
 
 		// Modifiers:
@@ -147,7 +147,7 @@ namespace	ft
 
 		size_type	erase(const key_type &k)
 		{
-			if (this->_tree.delete_node(make_pair(k, mapped_type())))
+			if (this->_tree.delete_node(ft::make_pair(k, mapped_type())))
 				return (1);
 			return (0);
 		}
@@ -216,8 +216,8 @@ namespace	ft
 
 		size_type	count(const key_type &k) const
 		{
-			iterator	begin = this->begin();
-			iterator	end = this->end();
+			const_iterator	begin = this->begin();
+			const_iterator	end = this->end();
 
 			while (begin != end)
 			{
@@ -291,7 +291,7 @@ namespace	ft
 
 		pair<iterator,iterator>	equal_range(const key_type &k)\
 		{
-			return (make_pair<iterator,iterator>(lower_bound(k), upper_bound(k)));
+			return (ft::make_pair<iterator,iterator>(lower_bound(k), upper_bound(k)));
 		}
 
 		// Allocator:

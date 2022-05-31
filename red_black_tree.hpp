@@ -5,8 +5,6 @@
 # include "rb_node.hpp"
 # include "iterator.hpp"
 # include "utils.hpp"
-# include <iostream>
-# include <string>
 
 namespace	ft
 {
@@ -84,7 +82,7 @@ namespace	ft
 				for (iterator tmp = it_b; tmp != it_e; ++tmp)
 				{
 					if (tmp->first == val.first)
-						return (make_pair(iterator(tmp), false));
+						return (ft::make_pair(iterator(tmp), false));
 				}
 
 				node_ptr	temp = this->_alloc.allocate(1);
@@ -125,7 +123,7 @@ namespace	ft
 				++this->_size;
 				update_root(temp);
 				update_leaf_parent(this->_root);
-				return (make_pair(iterator(temp), true));
+				return (ft::make_pair(iterator(temp), true));
 			}
 			node_ptr	temp = this->_alloc.allocate(1);
 			this->_alloc.construct(temp, node(RED, val, NULL, this->_leaf, this->_leaf));
@@ -133,7 +131,7 @@ namespace	ft
 			this->_leaf->_parent = this->_root;
 			insert_case1(this->_root);
 			++this->_size;
-			return (make_pair(iterator(temp), true));
+			return (ft::make_pair(iterator(temp), true));
 		}
 
 		bool	delete_node(const value_type &val)
@@ -468,7 +466,7 @@ namespace	ft
 
 			if  (s->_color == BLACK)
 			{
-				node_ptr	tmp_parent;
+				node_ptr	tmp_parent = NULL;
 
 				if ((n == n->_parent->_left) &&
 					(s->_right->_color == BLACK) &&

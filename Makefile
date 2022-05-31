@@ -3,11 +3,12 @@ NAME =		ft_containers
 CPP = 		c++
 
 #CPPFLAGS =	-g3 -pedantic -std=c++98 -W -Wall -Wextra -Werror
-CPPFLAGS =	-fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
+CPPFLAGS =	-fsanitize=address -pedantic -std=c++98 -Wall -Wextra -Werror
 #CPPFLAGS =	-g3 -fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
 #CPPFLAGS =	-pedantic -std=c++98 -W -Wall -Wextra -Werror
 
-SRCS =		main.cpp
+#SRCS =		main_ft.cpp
+SRCS =		main.cpp tester.cpp tester_map.cpp tester_stack.cpp tester_vector.cpp
 
 OBJS =		$(SRCS:.cpp=.o)
 

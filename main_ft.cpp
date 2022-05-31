@@ -84,5 +84,8 @@ int	main(void)
 		fm.insert(ft::make_pair(i+1, i*10));
 
 	show_map(fm);
+
+	ft::vector<int>	vi;
+	ft::vector<int>::const_iterator	cvit = vi.begin();
 	return (0);
 }
