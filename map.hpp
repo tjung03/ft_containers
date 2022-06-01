@@ -165,15 +165,14 @@ namespace	ft
 			if (this == &x)
 				return ;
 
-			rb_tree			tmp_tree = x._tree;
+			this->_tree.swap(x._tree);
+
 			key_compare		tmp_comp = x._comp;
 			allocator_type	tmp_alloc = x._alloc;
 
-			x._tree = this->_tree;
 			x._comp = this->_comp;
 			x._alloc = this->_alloc;
 
-			this->_tree = tmp_tree;
 			this->_comp = tmp_comp;
 			this->_alloc = tmp_alloc;
 		}

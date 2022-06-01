@@ -1,23 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tjung <tjung@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 17:53:07 by rchallie          #+#    #+#             */
-/*   Updated: 2022/05/31 22:36:48 by tjung            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "tester.hpp"
 #include <map>
 
 int main()
 {
-    test_vector();
-    std::cout << "\n";
-    test_map();
-    std::cout << "\n";
-    test_stack();
+	test_vector();
+	std::cout << "\n";
+	test_map();
+	std::cout << "\n";
+	test_stack();
 }

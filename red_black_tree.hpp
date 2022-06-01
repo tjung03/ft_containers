@@ -32,6 +32,14 @@ namespace	ft
 		typedef	ft::reverse_iterator<iterator>			reverse_iterator;
 		typedef	ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
+	private:
+		node_ptr		_root;
+		node_ptr		_leaf;
+		size_type		_size;
+		compare_type	_comp;
+		node_allocator	_alloc;
+
+	public:
 		explicit red_black_tree(const Compare &comp, const node_allocator &alloc = node_allocator())
 			: _size(0), _comp(comp), _alloc(alloc)
 		{
@@ -221,12 +229,6 @@ namespace	ft
 		size_type	max_size(void) const { return (this->_alloc.max_size()); }
 
 	private:
-		node_ptr		_root;
-		node_ptr		_leaf;
-		size_type		_size;
-		compare_type	_comp;
-		node_allocator	_alloc;
-
 		void	update_root(node_ptr cur)
 		{
 			while (cur->_parent)
@@ -511,6 +513,28 @@ namespace	ft
 				s->_left->_color = BLACK;
 				rotate_right(n->_parent);
 			}
+		}
+
+	public:
+		void	swap(red_black_tree &other)
+		{
+			node_ptr		tmp_root = other._root;
+			node_ptr		tmp_leaf = other._leaf;
+			size_type		tmp_size = other._size;
+			compare_type	tmp_comp = other._comp;
+			node_allocator	tmp_alloc = other._alloc;
+
+			other._root = this->_root;
+			other._leaf = this->_leaf;
+			other._size = this->_size;
+			other._comp = this->_comp;
+			other._alloc = this->_alloc;
+
+			this->_root = tmp_root;
+			this->_leaf = tmp_leaf;
+			this->_size = tmp_size;
+			this->_comp = tmp_comp;
+			this->_alloc = tmp_alloc;
 		}
 
 	};
