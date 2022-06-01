@@ -1,7 +1,7 @@
 NAME =		ft_containers
 TESTER =	rchallie_tester
-FT =		my_ft_test
-STD =		my_std_test
+FT =		ft_test
+STD =		std_test
 
 CPP = 		c++
 CPPFLAGS =	-g3 -fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
@@ -14,7 +14,7 @@ OBJS_T =	$(SRCS_T:.cpp=.o)
 OBJS_F =	$(SRCS_F:.cpp=.o)
 OBJS_S =	$(SRCS_S:.cpp=.o)
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re ft std
 
 %.o : %.cpp
 			$(CPP) $(CPPFLAGS) -c $< -o $@
@@ -49,3 +49,7 @@ fclean:		clean
 			@echo "\033[0m"
 
 re: 		fclean all
+
+ft:			$(FT)
+
+std:		$(STD)
