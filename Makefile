@@ -4,8 +4,8 @@ STD =		std_test
 TESTER =	rchallie_tester
 
 CPP = 		c++
-#CPPFLAGS =	-fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
-CPPFLAGS =	-fsanitize=address -Wall -Wextra -Werror
+CPPFLAGS =	-fsanitize=address -pedantic -std=c++98 -W -Wall -Wextra -Werror
+#CPPFLAGS =	-fsanitize=address -Wall -Wextra -Werror
 
 SRCS_F =	main_ft.cpp
 SRCS_S =	main_std.cpp

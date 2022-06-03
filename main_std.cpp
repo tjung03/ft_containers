@@ -92,7 +92,7 @@ int	main(void)
 	typedef	std::chrono::system_clock				clock;
 	typedef	std::chrono::microseconds				micro_t;
 	typedef	int										type1;
-	typedef	int										type2;
+//	typedef	int										type2;
 
 	time_point	start_time;
 	time_point	end_time;
@@ -704,648 +704,648 @@ int	main(void)
 	else
 		std::cout<<"false"<<std::endl<<std::endl;
 
-/* ******************************************************************************************************** */
-/*																											*/
-/*													MAP														*/
-/*																											*/
-/* ******************************************************************************************************** */
+// /* ******************************************************************************************************** */
+// /*																											*/
+// /*													MAP														*/
+// /*																											*/
+// /* ******************************************************************************************************** */
 
-	std::cout<<"================= MAP ================="<<std::endl;
-	int	pair_size = 10;
-	ft::pair<type1,type2>	pair_m[10];
+// 	std::cout<<"================= MAP ================="<<std::endl;
+// 	int	pair_size = 10;
+// 	ft::pair<type1,type2>	pair_m[10];
 
-	n = &pair_size;
+// 	n = &pair_size;
 
-	for (int i = 0; i < *n; ++i)
-		pair_m[i] = ft::make_pair((i + 1) * 100, i + 1);
+// 	for (int i = 0; i < *n; ++i)
+// 		pair_m[i] = ft::make_pair((i + 1) * 100, i + 1);
 
-	std::cout<<"* pair_m *"<<std::endl;
-	for (int i = 0; i < *n; ++i)
-		std::cout<<"("<<pair_m[i].first<<") ";
-	std::cout<<std::endl<<std::endl;
+// 	std::cout<<"* pair_m *"<<std::endl;
+// 	for (int i = 0; i < *n; ++i)
+// 		std::cout<<"("<<pair_m[i].first<<") ";
+// 	std::cout<<std::endl<<std::endl;
 
-	std::cout<<"---------- empty constructor ----------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>	m1 *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>	m1;
-	end_time = clock::now();
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------- empty constructor ----------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>	m1 *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>	m1;
+// 	end_time = clock::now();
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------- operator[] --------------"<<std::endl;
-	std::cout<<"* m1[pair.first] = pair.second *"<<std::endl;
-	for (int i = 0; i < *n; ++i)
-	{
-		start_time = clock::now();
-		m1[pair_m[i].first] = pair_m[i].second;
-		end_time = clock::now();
-		max = micro.count() < max ? max : micro.count();
-	}
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------- operator[] --------------"<<std::endl;
+// 	std::cout<<"* m1[pair.first] = pair.second *"<<std::endl;
+// 	for (int i = 0; i < *n; ++i)
+// 	{
+// 		start_time = clock::now();
+// 		m1[pair_m[i].first] = pair_m[i].second;
+// 		end_time = clock::now();
+// 		max = micro.count() < max ? max : micro.count();
+// 	}
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------- range constructor ----------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>	m2(m1.begin(), m1.end()) *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>	m2(m1.begin(), m1.end());
-	end_time = clock::now();
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------- range constructor ----------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>	m2(m1.begin(), m1.end()) *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>	m2(m1.begin(), m1.end());
+// 	end_time = clock::now();
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"----------- copy constructor ----------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>	m3(m2) *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>	m3(m2);
-	end_time = clock::now();
-	show_map(m3);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"----------- copy constructor ----------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>	m3(m2) *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>	m3(m2);
+// 	end_time = clock::now();
+// 	show_map(m3);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-------------- operator= --------------"<<std::endl;
-	std::cout<<"* m4 = m3 *"<<std::endl;
-	ft::map<type1,type2>	m4;
-	start_time = clock::now();
-	m4 = m3;
-	end_time = clock::now();
-	show_map(m4);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-------------- operator= --------------"<<std::endl;
+// 	std::cout<<"* m4 = m3 *"<<std::endl;
+// 	ft::map<type1,type2>	m4;
+// 	start_time = clock::now();
+// 	m4 = m3;
+// 	end_time = clock::now();
+// 	show_map(m4);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- begin ----------------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>::iterator m_first = m.begin() *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mfirst1 = m1.begin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mfirst2 = m2.begin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mfirst3 = m3.begin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mfirst4 = m4.begin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
+// 	std::cout<<"---------------- begin ----------------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>::iterator m_first = m.begin() *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mfirst1 = m1.begin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mfirst2 = m2.begin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mfirst3 = m3.begin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mfirst4 = m4.begin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
 
-	std::cout<<"*m1::mfirst1.first: "<<(*mfirst1).first<<std::endl;
-	std::cout<<"*m2::mfirst2.first: "<<(*mfirst2).first<<std::endl;
-	std::cout<<"*m3::mfirst3.first: "<<(*mfirst3).first<<std::endl;
-	std::cout<<"*m4::mfirst4.first: "<<(*mfirst4).first<<std::endl<<std::endl;
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"*m1::mfirst1.first: "<<(*mfirst1).first<<std::endl;
+// 	std::cout<<"*m2::mfirst2.first: "<<(*mfirst2).first<<std::endl;
+// 	std::cout<<"*m3::mfirst3.first: "<<(*mfirst3).first<<std::endl;
+// 	std::cout<<"*m4::mfirst4.first: "<<(*mfirst4).first<<std::endl<<std::endl;
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"----------------- end -----------------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>::iterator mlast = m.end() *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mlast1 = m1.end();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mlast2 = m2.end();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mlast3 = m3.end();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::iterator	mlast4 = m4.end();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
+// 	std::cout<<"----------------- end -----------------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>::iterator mlast = m.end() *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mlast1 = m1.end();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mlast2 = m2.end();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mlast3 = m3.end();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::iterator	mlast4 = m4.end();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
 
-	std::cout<<"*m1::mlast1.first: "<<(*mlast1).first<<std::endl;
-	std::cout<<"*m2::mlast2.first: "<<(*mlast2).first<<std::endl;
-	std::cout<<"*m3::mlast3.first: "<<(*mlast3).first<<std::endl;
-	std::cout<<"*m4::mlast4.first: "<<(*mlast4).first<<std::endl<<std::endl;
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"*m1::mlast1.first: "<<(*mlast1).first<<std::endl;
+// 	std::cout<<"*m2::mlast2.first: "<<(*mlast2).first<<std::endl;
+// 	std::cout<<"*m3::mlast3.first: "<<(*mlast3).first<<std::endl;
+// 	std::cout<<"*m4::mlast4.first: "<<(*mlast4).first<<std::endl<<std::endl;
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"--------------- rbegin ----------------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>::reverse_iterator mrfirst = m.rbegin() *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrfirst1 = m1.rbegin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrfirst2 = m2.rbegin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrfirst3 = m3.rbegin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrfirst4 = m4.rbegin();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
+// 	std::cout<<"--------------- rbegin ----------------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>::reverse_iterator mrfirst = m.rbegin() *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrfirst1 = m1.rbegin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrfirst2 = m2.rbegin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrfirst3 = m3.rbegin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrfirst4 = m4.rbegin();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
 
-	std::cout<<"*m1::mrfirst1.first: "<<(*mrfirst1).first<<std::endl;
-	std::cout<<"*m2::mrfirst2.first: "<<(*mrfirst2).first<<std::endl;
-	std::cout<<"*m3::mrfirst3.first: "<<(*mrfirst3).first<<std::endl;
-	std::cout<<"*m4::mrfirst4.first: "<<(*mrfirst4).first<<std::endl<<std::endl;
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"*m1::mrfirst1.first: "<<(*mrfirst1).first<<std::endl;
+// 	std::cout<<"*m2::mrfirst2.first: "<<(*mrfirst2).first<<std::endl;
+// 	std::cout<<"*m3::mrfirst3.first: "<<(*mrfirst3).first<<std::endl;
+// 	std::cout<<"*m4::mrfirst4.first: "<<(*mrfirst4).first<<std::endl<<std::endl;
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- rend -----------------"<<std::endl;
-	std::cout<<"* ft::map<type1,type2>::reverse_iterator mrlast = m.rend() *"<<std::endl;
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrlast1 = m1.rend();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrlast2 = m2.rend();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrlast3 = m3.rend();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
-	start_time = clock::now();
-	ft::map<type1,type2>::reverse_iterator mrlast4 = m4.rend();
-	end_time = clock::now();
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	max = micro.count() < max ? max : micro.count();
+// 	std::cout<<"---------------- rend -----------------"<<std::endl;
+// 	std::cout<<"* ft::map<type1,type2>::reverse_iterator mrlast = m.rend() *"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrlast1 = m1.rend();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrlast2 = m2.rend();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrlast3 = m3.rend();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
+// 	start_time = clock::now();
+// 	ft::map<type1,type2>::reverse_iterator mrlast4 = m4.rend();
+// 	end_time = clock::now();
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	max = micro.count() < max ? max : micro.count();
 
-	std::cout<<"*m1::mrlast1.first: "<<(*mrlast1).first<<std::endl;
-	std::cout<<"*m2::mrlast2.first: "<<(*mrlast2).first<<std::endl;
-	std::cout<<"*m3::mrlast3.first: "<<(*mrlast3).first<<std::endl;
-	std::cout<<"*m4::mrlast4.first: "<<(*mrlast4).first<<std::endl<<std::endl;
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"m1::*(--mrlast1).first: "<<(*(--mrlast1)).first<<std::endl;
+// 	std::cout<<"m2::*(--mrlast2).first: "<<(*(--mrlast2)).first<<std::endl;
+// 	std::cout<<"m3::*(--mrlast3).first: "<<(*(--mrlast3)).first<<std::endl;
+// 	std::cout<<"m4::*(--mrlast4).first: "<<(*(--mrlast4)).first<<std::endl<<std::endl;
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- empty ----------------"<<std::endl;
-	std::cout<<"* is_empty = m5.empty() *"<<std::endl;
-	ft::map<type1,type2>	m5;
-	start_time = clock::now();
-	is_empty = m5.empty();
-	end_time = clock::now();
-	std::cout<<"-> Is m5 empty? ";
-	if (is_empty)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	show_map(m5);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- empty ----------------"<<std::endl;
+// 	std::cout<<"* is_empty = m5.empty() *"<<std::endl;
+// 	ft::map<type1,type2>	m5;
+// 	start_time = clock::now();
+// 	is_empty = m5.empty();
+// 	end_time = clock::now();
+// 	std::cout<<"-> Is m5 empty? ";
+// 	if (is_empty)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	show_map(m5);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"* is_empty = m1.empty() *"<<std::endl;
-	start_time = clock::now();
-	is_empty = m1.empty();
-	end_time = clock::now();
-	std::cout<<"-> Is m1 empty? ";
-	if (is_empty)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"* is_empty = m1.empty() *"<<std::endl;
+// 	start_time = clock::now();
+// 	is_empty = m1.empty();
+// 	end_time = clock::now();
+// 	std::cout<<"-> Is m1 empty? ";
+// 	if (is_empty)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-------------- max_size ---------------"<<std::endl;
-	std::cout<<"* m1.max_size() *"<<std::endl;
-	start_time = clock::now();
-	max_size = m1.max_size();
-	end_time = clock::now();
-	std::cout<<"m1 - max_size: "<<max_size<<std::endl<<std::endl;
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-------------- max_size ---------------"<<std::endl;
+// 	std::cout<<"* m1.max_size() *"<<std::endl;
+// 	start_time = clock::now();
+// 	max_size = m1.max_size();
+// 	end_time = clock::now();
+// 	std::cout<<"m1 - max_size: "<<max_size<<std::endl<<std::endl;
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-------- single element insert --------"<<std::endl;
-	std::cout<<"* m1.insert(value_type) *"<<std::endl<<std::endl;
+// 	std::cout<<"-------- single element insert --------"<<std::endl;
+// 	std::cout<<"* m1.insert(value_type) *"<<std::endl<<std::endl;
 
-	std::cout<<"-> m1.insert(ft::make_pair(550, 0))"<<std::endl;
-	start_time = clock::now();
-	ft::pair<ft::map<type1,type2>::iterator, bool>	ret = m1.insert(ft::make_pair(550, 0));
-	end_time = clock::now();
-	std::cout<<"result -  first: "<<(*ret.first).first<<std::endl;
-	std::cout<<"result - second: "<<ret.second<<std::endl;
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-> m1.insert(ft::make_pair(550, 0))"<<std::endl;
+// 	start_time = clock::now();
+// 	ft::pair<ft::map<type1,type2>::iterator, bool>	ret = m1.insert(ft::make_pair(550, 0));
+// 	end_time = clock::now();
+// 	std::cout<<"result -  first: "<<(*ret.first).first<<std::endl;
+// 	std::cout<<"result - second: "<<ret.second<<std::endl;
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-> m1.insert(ft::make_pair(100, 0))"<<std::endl;
-	start_time = clock::now();
-	ret = m1.insert(ft::make_pair(100, 0));
-	end_time = clock::now();
-	std::cout<<"result -  first: "<<(*ret.first).first<<std::endl;
-	std::cout<<"result - second: "<<ret.second<<std::endl;
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-> m1.insert(ft::make_pair(100, 0))"<<std::endl;
+// 	start_time = clock::now();
+// 	ret = m1.insert(ft::make_pair(100, 0));
+// 	end_time = clock::now();
+// 	std::cout<<"result -  first: "<<(*ret.first).first<<std::endl;
+// 	std::cout<<"result - second: "<<ret.second<<std::endl;
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------ with hint insert --------------"<<std::endl;
-	std::cout<<"* m4.insert(hint, value_type) *"<<std::endl<<std::endl;
+// 	std::cout<<"------------ with hint insert --------------"<<std::endl;
+// 	std::cout<<"* m4.insert(hint, value_type) *"<<std::endl<<std::endl;
 
-	ft::map<type1,type2>::iterator mtmp = m4.begin();
-	std::cout<<"-> m4.insert(mtmp, ft::make_pair(550, 0))"<<std::endl;
-	start_time = clock::now();
-	mtmp = m4.insert(mtmp, ft::make_pair(550, 0));
-	end_time = clock::now();
-	std::cout<<"result -  first: "<<(*mtmp).first<<std::endl;
-	show_map(m4);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	ft::map<type1,type2>::iterator mtmp = m4.begin();
+// 	std::cout<<"-> m4.insert(mtmp, ft::make_pair(550, 0))"<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m4.insert(mtmp, ft::make_pair(550, 0));
+// 	end_time = clock::now();
+// 	std::cout<<"result -  first: "<<(*mtmp).first<<std::endl;
+// 	show_map(m4);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	mtmp = m4.begin();
-	std::cout<<"-> m4.insert(mtmp, ft::make_pair(100, 0))"<<std::endl;
-	start_time = clock::now();
-	mtmp = m4.insert(mtmp, ft::make_pair(100, 0));
-	end_time = clock::now();
-	std::cout<<"result -  first: "<<(*mtmp).first<<std::endl;
-	show_map(m4);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	mtmp = m4.begin();
+// 	std::cout<<"-> m4.insert(mtmp, ft::make_pair(100, 0))"<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m4.insert(mtmp, ft::make_pair(100, 0));
+// 	end_time = clock::now();
+// 	std::cout<<"result -  first: "<<(*mtmp).first<<std::endl;
+// 	show_map(m4);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------ range insert -------------"<<std::endl;
-	std::cout<<"* m2.insert(mfirst1, mlast1) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	m2.insert(mfirst1, mlast1);
-	end_time = clock::now();
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------ range insert -------------"<<std::endl;
+// 	std::cout<<"* m2.insert(mfirst1, mlast1) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	m2.insert(mfirst1, mlast1);
+// 	end_time = clock::now();
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-------- single iterator erase ---------"<<std::endl;
-	mtmp = m1.begin();
-	std::cout<<"m1 에서 삭제할 키 값: "<<(*mtmp).first<<std::endl;
-	std::cout<<"* m1.erase(mtmp) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	m1.erase(mtmp);
-	end_time = clock::now();
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-------- single iterator erase ---------"<<std::endl;
+// 	mtmp = m1.begin();
+// 	std::cout<<"m1 에서 삭제할 키 값: "<<(*mtmp).first<<std::endl;
+// 	std::cout<<"* m1.erase(mtmp) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	m1.erase(mtmp);
+// 	end_time = clock::now();
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"-------- single key erase ---------"<<std::endl;
-	std::cout<<"m1 에서 삭제할 키 값: 550"<<std::endl;
-	std::cout<<"* size_t = m1.erase(550) : 성공 *"<<std::endl;
-	start_time = clock::now();
-	size_t	success = m1.erase(550);
-	end_time = clock::now();
-	std::cout<<"success-> "<<success<<std::endl<<std::endl;
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"-------- single key erase ---------"<<std::endl;
+// 	std::cout<<"m1 에서 삭제할 키 값: 550"<<std::endl;
+// 	std::cout<<"* size_t = m1.erase(550) : 성공 *"<<std::endl;
+// 	start_time = clock::now();
+// 	size_t	success = m1.erase(550);
+// 	end_time = clock::now();
+// 	std::cout<<"success-> "<<success<<std::endl<<std::endl;
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"m1 에서 삭제할 키 값: 10000"<<std::endl;
-	std::cout<<"* size_t = m1.erase(10000) : 실패 *"<<std::endl;
-	start_time = clock::now();
-	success = m1.erase(10000);
-	end_time = clock::now();
-	std::cout<<"failure-> "<<success<<std::endl<<std::endl;
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"m1 에서 삭제할 키 값: 10000"<<std::endl;
+// 	std::cout<<"* size_t = m1.erase(10000) : 실패 *"<<std::endl;
+// 	start_time = clock::now();
+// 	success = m1.erase(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"failure-> "<<success<<std::endl<<std::endl;
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------ range erase --------------"<<std::endl;
-	std::cout<<"=> m1 전체 삭제"<<std::endl;
-	std::cout<<"* m1.erase(mfirst1, mlast1) *"<<std::endl;
-	mfirst1 = m1.begin();
-	mlast1 = m1.end();
-	start_time = clock::now();
-	m1.erase(mfirst1, mlast1);
-	end_time = clock::now();
-	show_map(m1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------ range erase --------------"<<std::endl;
+// 	std::cout<<"=> m1 전체 삭제"<<std::endl;
+// 	std::cout<<"* m1.erase(mfirst1, mlast1) *"<<std::endl;
+// 	mfirst1 = m1.begin();
+// 	mlast1 = m1.end();
+// 	start_time = clock::now();
+// 	m1.erase(mfirst1, mlast1);
+// 	end_time = clock::now();
+// 	show_map(m1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------- member swap -------------"<<std::endl;
-	std::cout<<"m1 ->"<<std::endl;
-	show_map(m1);
-	std::cout<<"m4 ->"<<std::endl;
-	show_map(m4);
-	std::cout<<"* m1.swap(m4) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	m1.swap(m4);
-	end_time = clock::now();
-	std::cout<<"m1 ->"<<std::endl;
-	show_map(m1);
-	std::cout<<"m4 ->"<<std::endl;
-	show_map(m4);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------- member swap -------------"<<std::endl;
+// 	std::cout<<"m1 ->"<<std::endl;
+// 	show_map(m1);
+// 	std::cout<<"m4 ->"<<std::endl;
+// 	show_map(m4);
+// 	std::cout<<"* m1.swap(m4) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	m1.swap(m4);
+// 	end_time = clock::now();
+// 	std::cout<<"m1 ->"<<std::endl;
+// 	show_map(m1);
+// 	std::cout<<"m4 ->"<<std::endl;
+// 	show_map(m4);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- clear ----------------"<<std::endl;
-	std::cout<<"* m.clear() *"<<std::endl<<std::endl;
-	std::cout<<"-> m3.clear()"<<std::endl;
-	start_time = clock::now();
-	m3.clear();
-	end_time = clock::now();
-	show_map(m3);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- clear ----------------"<<std::endl;
+// 	std::cout<<"* m.clear() *"<<std::endl<<std::endl;
+// 	std::cout<<"-> m3.clear()"<<std::endl;
+// 	start_time = clock::now();
+// 	m3.clear();
+// 	end_time = clock::now();
+// 	show_map(m3);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- find -----------------"<<std::endl;
-	mlast2 = m2.end();
-	std::cout<<"* iterator = m2.find(key) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	mtmp = m2.find(100);
-	end_time = clock::now();
-	std::cout<<"-> find 100 ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success - "<<mtmp->first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- find -----------------"<<std::endl;
+// 	mlast2 = m2.end();
+// 	std::cout<<"* iterator = m2.find(key) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.find(100);
+// 	end_time = clock::now();
+// 	std::cout<<"-> find 100 ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success - "<<mtmp->first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	mtmp = m2.find(10000);
-	end_time = clock::now();
-	std::cout<<"-> find 10000 ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success - "<<mtmp->first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.find(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"-> find 10000 ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success - "<<mtmp->first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- count ----------------"<<std::endl;
-	std::cout<<"* size_t = m2.count(key) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	success = m2.count(100);
-	end_time = clock::now();
-	std::cout<<"-> count 100 ? ";
-	if (!success)
-		std::cout<<"failure: "<<success<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<success<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- count ----------------"<<std::endl;
+// 	std::cout<<"* size_t = m2.count(key) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	success = m2.count(100);
+// 	end_time = clock::now();
+// 	std::cout<<"-> count 100 ? ";
+// 	if (!success)
+// 		std::cout<<"failure: "<<success<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<success<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	success = m2.count(10000);
-	end_time = clock::now();
-	std::cout<<"-> count 10000 ? ";
-	if (!success)
-		std::cout<<"failure: "<<success<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<success<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	success = m2.count(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"-> count 10000 ? ";
+// 	if (!success)
+// 		std::cout<<"failure: "<<success<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<success<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------- lower_bound -------------"<<std::endl;
-	std::cout<<"* iterator = m2.lower_bound(key) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	mtmp = m2.lower_bound(10000);
-	end_time = clock::now();
-	std::cout<<"-> lower_bound(10000) ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------- lower_bound -------------"<<std::endl;
+// 	std::cout<<"* iterator = m2.lower_bound(key) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.lower_bound(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"-> lower_bound(10000) ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	mtmp = m2.lower_bound(500);
-	end_time = clock::now();
-	std::cout<<"-> lower_bound(500) ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.lower_bound(500);
+// 	end_time = clock::now();
+// 	std::cout<<"-> lower_bound(500) ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------- upper_bound -------------"<<std::endl;
-	std::cout<<"* iterator = m2.upper_bound(key) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	mtmp = m2.upper_bound(10000);
-	end_time = clock::now();
-	std::cout<<"-> upper_bound(10000) ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------- upper_bound -------------"<<std::endl;
+// 	std::cout<<"* iterator = m2.upper_bound(key) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.upper_bound(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"-> upper_bound(10000) ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	mtmp = m2.upper_bound(500);
-	end_time = clock::now();
-	std::cout<<"-> upper_bound(500) ? ";
-	if (mtmp == mlast2)
-		std::cout<<"failure"<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	mtmp = m2.upper_bound(500);
+// 	end_time = clock::now();
+// 	std::cout<<"-> upper_bound(500) ? ";
+// 	if (mtmp == mlast2)
+// 		std::cout<<"failure"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*mtmp).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"------------- equal_range -------------"<<std::endl;
-	std::cout<<"* pair<iter,iter> = m2.equal_range(key) *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	ft::pair<ft::map<type1,type2>::iterator, ft::map<type1,type2>::iterator> \
-		e_range = m2.equal_range(10000);
-	end_time = clock::now();
-	std::cout<<"-> equal_range(10000) ? ";
-	if ((*e_range.first).first == (*e_range.second).first)
-		std::cout<<"failure: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"------------- equal_range -------------"<<std::endl;
+// 	std::cout<<"* pair<iter,iter> = m2.equal_range(key) *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	ft::pair<ft::map<type1,type2>::iterator, ft::map<type1,type2>::iterator> \
+// 		e_range = m2.equal_range(10000);
+// 	end_time = clock::now();
+// 	std::cout<<"-> equal_range(10000) ? ";
+// 	if ((*e_range.first).first == (*e_range.second).first)
+// 		std::cout<<"failure: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	e_range = m2.equal_range(500);
-	end_time = clock::now();
-	std::cout<<"-> equal_range(500) ? ";
-	if ((*e_range.first).first == (*e_range.second).first)
-		std::cout<<"failure: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
-	else
-		std::cout<<"success: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
-	show_map(m2);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	e_range = m2.equal_range(500);
+// 	end_time = clock::now();
+// 	std::cout<<"-> equal_range(500) ? ";
+// 	if ((*e_range.first).first == (*e_range.second).first)
+// 		std::cout<<"failure: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"success: "<<(*e_range.first).first<<"~"<<(*e_range.second).first<<std::endl<<std::endl;
+// 	show_map(m2);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---- relational operators (vector) ----"<<std::endl<<std::endl;
-	std::cout<<"=> m1"<<std::endl;
-	show_map(m1);
-	std::cout<<"=> m2"<<std::endl;
-	show_map(m2);
+// 	std::cout<<"---- relational operators (vector) ----"<<std::endl<<std::endl;
+// 	std::cout<<"=> m1"<<std::endl;
+// 	show_map(m1);
+// 	std::cout<<"=> m2"<<std::endl;
+// 	show_map(m2);
 
-	std::cout<<"-> operator=="<<std::endl;
-	std::cout<<" m1 == m2 ? ";
-	if (m1 == m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator!="<<std::endl;
-	std::cout<<"m1 != m2 ? ";
-	if (m1 != m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator<"<<std::endl;
-	std::cout<<"m1 < m2 ? ";
-	if (m1 < m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator<="<<std::endl;
-	std::cout<<"m1 <= m2 ? ";
-	if (m1 <= m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator>"<<std::endl;
-	std::cout<<"m1 > m2 ? ";
-	if (m1 > m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator>="<<std::endl;
-	std::cout<<"m1 >= m2 ? ";
-	if (m1 >= m2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator=="<<std::endl;
+// 	std::cout<<" m1 == m2 ? ";
+// 	if (m1 == m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator!="<<std::endl;
+// 	std::cout<<"m1 != m2 ? ";
+// 	if (m1 != m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator<"<<std::endl;
+// 	std::cout<<"m1 < m2 ? ";
+// 	if (m1 < m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator<="<<std::endl;
+// 	std::cout<<"m1 <= m2 ? ";
+// 	if (m1 <= m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator>"<<std::endl;
+// 	std::cout<<"m1 > m2 ? ";
+// 	if (m1 > m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator>="<<std::endl;
+// 	std::cout<<"m1 >= m2 ? ";
+// 	if (m1 >= m2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
 
-/* ******************************************************************************************************** */
-/*																											*/
-/*													STACK													*/
-/*																											*/
-/* ******************************************************************************************************** */
+// /* ******************************************************************************************************** */
+// /*																											*/
+// /*													STACK													*/
+// /*																											*/
+// /* ******************************************************************************************************** */
 
-	std::cout<<"================ STACK ================"<<std::endl;
-	std::cout<<"------------- constructor -------------"<<std::endl;
-	std::cout<<"* MutantStack<int>	s1 *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	MutantStack<int>	s1;
-	end_time = clock::now();
-	show_stack(s1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"================ STACK ================"<<std::endl;
+// 	std::cout<<"------------- constructor -------------"<<std::endl;
+// 	std::cout<<"* MutantStack<int>	s1 *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	MutantStack<int>	s1;
+// 	end_time = clock::now();
+// 	show_stack(s1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- empty ----------------"<<std::endl;
-	std::cout<<"* bool = s1.empty() *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	is_empty = s1.empty();
-	end_time = clock::now();
-	if (is_empty == 1)
-		std::cout<<"s1 is empty"<<std::endl<<std::endl;
-	else
-		std::cout<<"s1 is not empty"<<std::endl<<std::endl;
-	show_stack(s1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- empty ----------------"<<std::endl;
+// 	std::cout<<"* bool = s1.empty() *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	is_empty = s1.empty();
+// 	end_time = clock::now();
+// 	if (is_empty == 1)
+// 		std::cout<<"s1 is empty"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"s1 is not empty"<<std::endl<<std::endl;
+// 	show_stack(s1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---------------- push -----------------"<<std::endl;
-	std::cout<<"* s1.push() *"<<std::endl<<std::endl;
-	for (int i = 0; i < *n; ++i)
-	{
-		start_time = clock::now();
-		s1.push(arr_v[i]);
-		end_time = clock::now();
-		micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-		max = micro.count() < max ? max : micro.count();
-	}
-	show_stack(s1);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"---------------- push -----------------"<<std::endl;
+// 	std::cout<<"* s1.push() *"<<std::endl<<std::endl;
+// 	for (int i = 0; i < *n; ++i)
+// 	{
+// 		start_time = clock::now();
+// 		s1.push(arr_v[i]);
+// 		end_time = clock::now();
+// 		micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 		max = micro.count() < max ? max : micro.count();
+// 	}
+// 	show_stack(s1);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"----------------- top -----------------"<<std::endl;
-	std::cout<<"* value_type = s1.top() *"<<std::endl<<std::endl;
-	start_time = clock::now();
-	int	top = s1.top();
-	end_time = clock::now();
-	std::cout<<"original s1 top: "<<top<<std::endl<<std::endl;
-	show_stack(s1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"----------------- top -----------------"<<std::endl;
+// 	std::cout<<"* value_type = s1.top() *"<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	int	top = s1.top();
+// 	end_time = clock::now();
+// 	std::cout<<"original s1 top: "<<top<<std::endl<<std::endl;
+// 	show_stack(s1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	start_time = clock::now();
-	s1.top() = 777;
-	end_time = clock::now();
-	std::cout<<"changed s1 top: "<<top<<std::endl<<std::endl;
-	show_stack(s1);
-	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	start_time = clock::now();
+// 	s1.top() = 777;
+// 	end_time = clock::now();
+// 	std::cout<<"changed s1 top: "<<top<<std::endl<<std::endl;
+// 	show_stack(s1);
+// 	micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 	std::cout<<YELLOW<<"수행 시간: "<<micro.count()<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"----------------- pop -----------------"<<std::endl;
-	std::cout<<"* s1.pop() *"<<std::endl<<std::endl;
-	for (int i = 0; i < 5; ++i)
-	{
-		start_time = clock::now();
-		s1.pop();
-		end_time = clock::now();
-		micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-		max = micro.count() < max ? max : micro.count();
-	}
-	show_stack(s1);
-	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
+// 	std::cout<<"----------------- pop -----------------"<<std::endl;
+// 	std::cout<<"* s1.pop() *"<<std::endl<<std::endl;
+// 	for (int i = 0; i < 5; ++i)
+// 	{
+// 		start_time = clock::now();
+// 		s1.pop();
+// 		end_time = clock::now();
+// 		micro = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
+// 		max = micro.count() < max ? max : micro.count();
+// 	}
+// 	show_stack(s1);
+// 	std::cout<<YELLOW<<"수행 시간: "<<max<<"μs"<<DEFAULT<<std::endl<<std::endl;
 
-	std::cout<<"---- relational operators (map) ----"<<std::endl<<std::endl;
-	MutantStack<int>	s2;
-	for (int i = 0; i < *n; ++i)
-		s2.push(arr_v[i]);
+// 	std::cout<<"---- relational operators (map) ----"<<std::endl<<std::endl;
+// 	MutantStack<int>	s2;
+// 	for (int i = 0; i < *n; ++i)
+// 		s2.push(arr_v[i]);
 
-	std::cout<<"=> s1"<<std::endl;
-	show_stack(s1);
-	std::cout<<"=> s2"<<std::endl;
-	show_stack(s2);
+// 	std::cout<<"=> s1"<<std::endl;
+// 	show_stack(s1);
+// 	std::cout<<"=> s2"<<std::endl;
+// 	show_stack(s2);
 
-	std::cout<<"-> operator=="<<std::endl;
-	std::cout<<" s1 == s2 ? ";
-	if (s1 == s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator!="<<std::endl;
-	std::cout<<"s1 != s2 ? ";
-	if (s1 != s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator<"<<std::endl;
-	std::cout<<"s1 < s2 ? ";
-	if (s1 < s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator<="<<std::endl;
-	std::cout<<"s1 <= s2 ? ";
-	if (s1 <= s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator>"<<std::endl;
-	std::cout<<"s1 > s2 ? ";
-	if (s1 > s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
-	std::cout<<"-> operator>="<<std::endl;
-	std::cout<<"s1 >= s2 ? ";
-	if (s1 >= s2)
-		std::cout<<"true"<<std::endl<<std::endl;
-	else
-		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator=="<<std::endl;
+// 	std::cout<<" s1 == s2 ? ";
+// 	if (s1 == s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator!="<<std::endl;
+// 	std::cout<<"s1 != s2 ? ";
+// 	if (s1 != s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator<"<<std::endl;
+// 	std::cout<<"s1 < s2 ? ";
+// 	if (s1 < s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator<="<<std::endl;
+// 	std::cout<<"s1 <= s2 ? ";
+// 	if (s1 <= s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator>"<<std::endl;
+// 	std::cout<<"s1 > s2 ? ";
+// 	if (s1 > s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
+// 	std::cout<<"-> operator>="<<std::endl;
+// 	std::cout<<"s1 >= s2 ? ";
+// 	if (s1 >= s2)
+// 		std::cout<<"true"<<std::endl<<std::endl;
+// 	else
+// 		std::cout<<"false"<<std::endl<<std::endl;
 
 	return (0);
 }

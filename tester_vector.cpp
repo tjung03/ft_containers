@@ -203,9 +203,11 @@ void test_vector()
 
 	/* Range constructor */
 	{
-		int range_array[] = { 45, 87846, 12, 965, 5 };
+		int					range_array[] = { 45, 87846, 12, 965, 5 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		fs.open("./tester/vectors_output/constructor_range", std::fstream::in | std::fstream::out | std::fstream::trunc);
@@ -231,8 +233,9 @@ void test_vector()
 	/* Copy constructor */
 	{
 		int range_array[] = { -89, 561, 874, 7777 , 987, -6 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[5]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 6);
@@ -265,8 +268,9 @@ void test_vector()
 	/* Assign operator */
 	{
 		int range_array[] = { 74, 569, -8822, 8515, 5 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -299,8 +303,9 @@ void test_vector()
 	/* Iterator begin() */
 	{
 		int range_array[] = { 87, 92, -5, 8984, 96 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -334,8 +339,9 @@ void test_vector()
 	/* Const iterator begin() */
 	{
 		int range_array[] = { 87, 92, -5, 8984, 96 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::const_iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::const_iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -373,8 +379,9 @@ void test_vector()
 	/* Iterator end() */
 	{
 		int range_array[] = { 48, 967, 52, -45, -9, 956551, 44};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[6]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 7);
@@ -408,8 +415,9 @@ void test_vector()
 	/* Const iterator end() */
 	{
 		int range_array[] = { 95, 89, -6121, 48, 5 };
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::const_iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::const_iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -447,8 +455,9 @@ void test_vector()
 	/* Iterator rbegin() */
 	{
 		int range_array[] = {250, -1200, -98657, 2, 34};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -482,8 +491,9 @@ void test_vector()
 	/* Const iterator rbegin() */
 	{
 		int range_array[] = { 958, -561, 54, 789, -8};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::const_iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::const_iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -521,8 +531,9 @@ void test_vector()
 		/* Iterator rend() */
 	{
 		int range_array[] = {78, -951, 562, 8, 745, 51236, 6987};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[6]) + 1);//
 
-		std::vector<int>::iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 7);
@@ -556,8 +567,9 @@ void test_vector()
 	/* Const iterator rend() */
 	{
 		int range_array[] = { 8, -5615, 412, 89, 475};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::const_iterator stl_iterator(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator(tjung1.begin());//
 		ft::vector<int>::const_iterator ft_iterator(&(range_array[0]));
 
 		std::vector<int> stl_range_vector(stl_iterator, stl_iterator + 5);
@@ -810,8 +822,9 @@ void test_vector()
 	/* Operator [] */
 	{
 		int range_array[] = { 8, -5615, 412, 89, 475};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_operator(stl_iterator_beg, stl_iterator_beg + 5);
@@ -835,8 +848,9 @@ void test_vector()
 	/* Const Operator [] */
 	{
 		int range_array[] = {8, -98, 541, 53361, 9};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_operator(stl_iterator_beg, stl_iterator_beg + 5);
@@ -865,8 +879,9 @@ void test_vector()
 	/* Normal at() */
 	{
 		int range_array[] = {8, -986, -8, 66, 7};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_at(stl_iterator_beg, stl_iterator_beg + 5);
@@ -890,8 +905,9 @@ void test_vector()
 	/* Const at() */
 	{
 		int range_array[] = {845, -9, 47, 4, -825};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_at(stl_iterator_beg, stl_iterator_beg + 5);
@@ -920,8 +936,9 @@ void test_vector()
 	/* Normal front() */
 	{
 		int range_array[] = {2, 0, 982, -9, 87};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_front(stl_iterator_beg, stl_iterator_beg + 5);
@@ -945,8 +962,9 @@ void test_vector()
 	/* Const front() */
 	{
 		int range_array[] = {5589, -97, -98, -63, 8};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_front(stl_iterator_beg, stl_iterator_beg + 5);
@@ -975,8 +993,9 @@ void test_vector()
 	/* Normal back() */
 	{
 		int range_array[] = {2, 0, 982, -9, 87};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_back(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1000,8 +1019,9 @@ void test_vector()
 	/* Const back() */
 	{
 		int range_array[] = {5589, -97, -98, -63, 8};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_back(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1033,8 +1053,9 @@ void test_vector()
 	/* Assign range */
 	{
 		int range_array[] = {84, 522, -654, -7623, 4};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_assign;
@@ -1063,8 +1084,9 @@ void test_vector()
 	/* Assign range replace */
 	{
 		int range_array[] = {547, 98, -6, 0, 47};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_assign(42);
@@ -1177,8 +1199,9 @@ void test_vector()
 	/* Pop back */
 	{
 		int range_array[] = {547, 98, -6, 0, 47};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_popback(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1205,8 +1228,9 @@ void test_vector()
 	/* Insert single element */
 	{
 		int range_array[] = {478, 87, -85, 44, 7};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_insert(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1234,8 +1258,9 @@ void test_vector()
 	/* Insert fill */
 	{
 		int range_array[] = {47, 152, -325, 9, 14444};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_insert(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1262,8 +1287,9 @@ void test_vector()
 	/* Insert range */
 	{
 		int range_array[] = {47, 152, -325, 9, 14444};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_insert(4);
@@ -1292,8 +1318,9 @@ void test_vector()
 	/* Erase single element */
 	{
 		int range_array[] = {47, 152, -325, 9, 14444};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_erase(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1322,8 +1349,9 @@ void test_vector()
 	/* Erase range */
 	{
 		int range_array[] = {1458, -98, 745, 62, 9};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_erase(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1353,9 +1381,11 @@ void test_vector()
 	{
 		int range_array_one[] = {1458, -98, 745, 62, 9};
 		int range_array_two[] = {478, 87, -15, 44, 7};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1396,8 +1426,9 @@ void test_vector()
 	/* Clear */
 	{
 		int range_array[] = {-455, 2, 1347, 75, 945};
+		std::vector<int>	tjung1(&(range_array[0]), &(range_array[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg(&(range_array[0]));
+		std::vector<int>::iterator stl_iterator_beg(tjung1.begin());//
 		ft::vector<int>::iterator ft_iterator_beg(&(range_array[0]));
 
 		std::vector<int> stl_clear(stl_iterator_beg, stl_iterator_beg + 5);
@@ -1432,9 +1463,11 @@ void test_vector()
 	{
 		int range_array_one[] = {1458, -98, 745, 62, 9};
 		int range_array_two[] = {1458, -98, 745, 62, 9};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1473,9 +1506,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {1458, -98, 745, 62, 9};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1514,9 +1549,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {1458, -98, 745, 62, 9};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1555,9 +1592,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1596,9 +1635,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 1, -98, 5};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1637,9 +1678,11 @@ void test_vector()
 	{
 		int range_array_one[] = {6780, 335, 1, -98, 5};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1678,9 +1721,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 1, -98, 5};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1719,9 +1764,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1760,9 +1807,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 9999, 5, 0, -54};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1801,9 +1850,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 9999, 5, 0, -54};
 		int range_array_two[] = {144, 335, 5, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1842,9 +1893,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {144, 335, 77, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1883,9 +1936,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 78, 0, -54};
 		int range_array_two[] = {144, 335, 77, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1924,9 +1979,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {144, 335, 77, 0, -54};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
@@ -1965,9 +2022,11 @@ void test_vector()
 	{
 		int range_array_one[] = {144, 335, 5, 0, -54};
 		int range_array_two[] = {47, -98, 58, 611, -4};
+		std::vector<int>	tjung1(&(range_array_one[0]), &(range_array_one[4]) + 1);//
+		std::vector<int>	tjung2(&(range_array_two[0]), &(range_array_two[4]) + 1);//
 
-		std::vector<int>::iterator stl_iterator_beg_one(&(range_array_one[0]));
-		std::vector<int>::iterator stl_iterator_beg_two(&(range_array_two[0]));
+		std::vector<int>::iterator stl_iterator_beg_one(tjung1.begin());//
+		std::vector<int>::iterator stl_iterator_beg_two(tjung2.begin());//
 		ft::vector<int>::iterator ft_iterator_beg_one(&(range_array_one[0]));
 		ft::vector<int>::iterator ft_iterator_beg_two(&(range_array_two[0]));
 
