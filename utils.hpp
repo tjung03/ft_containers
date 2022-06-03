@@ -140,15 +140,15 @@ namespace	ft
 		pair(const pair<U, V> &pr) : first(pr.first), second(pr.second) { }
 		pair(const first_type &a, const second_type &b) : first(a), second(b) { }
 
-		pair&	operator=(const pair &pr)
-		{
-			if (this != &pr)
-			{
-				this->first = pr.first;
-				this->second = pr.second;
-			}
-			return (*this);
-		}
+		// pair&	operator=(const pair &pr)
+		// {
+		// 	if (this != &pr)
+		// 	{
+		// 		this->first = pr.first;
+		// 		this->second = pr.second;
+		// 	}
+		// 	return (*this);
+		// }
 
 		template <class U1, class U2>
 		friend bool	operator==(const pair<U1, U2> &lhs, const pair<U1, U2> &rhs);

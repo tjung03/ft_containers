@@ -59,6 +59,8 @@ namespace	ft
 		allocator_type	_alloc;
 
 	public:
+		rb_tree&	get_tree_ref(void) { return (this->_tree); }
+
 	/* Member functions */
 		// (constructor)
 		explicit map(const key_compare &comp = key_compare(), const allocator_type &alloc = allocator_type())
@@ -301,7 +303,7 @@ namespace	ft
 	template <class Key, class T, class Compare, class Alloc>
 	bool	operator==(const ft::map<Key, T, Compare, Alloc> &lhs, const ft::map<Key, T, Compare, Alloc> &rhs)
 	{
-		return ((lhs.size() == rhs.size) && (equal(lhs.begin(), lhs.end(), rhs.begin())));
+		return ((lhs.size() == rhs.size()) && (equal(lhs.begin(), lhs.end(), rhs.begin())));
 	}
 
 	template <class Key, class T, class Compare, class Alloc>

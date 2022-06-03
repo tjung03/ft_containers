@@ -34,6 +34,8 @@ namespace	ft
 		size_type		_capacity;
 
 	public:
+		pointer	get_vecptr(void) { return (this->_vecptr); }
+
 	/* public member function */
 		// (constructor)
 		explicit vector(const allocator_type &alloc = allocator_type())

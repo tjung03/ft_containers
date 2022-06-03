@@ -40,6 +40,8 @@ namespace	ft
 		node_allocator	_alloc;
 
 	public:
+		node_ptr	get_root_ptr(void) { return (this->_root); }
+
 		explicit red_black_tree(const Compare &comp, const node_allocator &alloc = node_allocator())
 			: _size(0), _comp(comp), _alloc(alloc)
 		{
