@@ -11,7 +11,7 @@ C++의 `vector`, `map`, `stack`을 `ft` 네임스페이스에 구현한 42 Seoul
 | [vector.hpp](vector.hpp) | allocator로 연속 저장 공간 관리, 크기·용량 분리, 삽입·삭제·재할당 |
 | [map.hpp](map.hpp) | 키·값 저장, 삽입·삭제, 조회와 범위 연산 |
 | [red_black_tree.hpp](red_black_tree.hpp) · [rb_node.hpp](rb_node.hpp) | 노드 색상과 부모·자식 연결, 회전, 삽입·삭제 후 재균형 |
-| [stack.hpp](stack.hpp) | 기본 컨테이너로 `ft::vector`를 사용하는 LIFO 어댑터 |
+| [stack.hpp](stack.hpp) | 기본 컨테이너로 `ft::vector`를 사용하는 후입선출(LIFO) 어댑터 |
 | [iterator.hpp](iterator.hpp) | 벡터·트리 반복자, const 반복자, 역방향 반복자와 traits |
 | [utils.hpp](utils.hpp) | `enable_if`, `is_integral`, `pair`, 구간 비교 함수 |
 | [main_ft.cpp](main_ft.cpp) · [main_std.cpp](main_std.cpp) | ft·std 컨테이너의 상태 출력과 시간 측정 코드 |
@@ -21,7 +21,7 @@ C++의 `vector`, `map`, `stack`을 `ft` 네임스페이스에 구현한 42 Seoul
 
 **벡터의 저장 공간과 원소 수명을 분리합니다.** `allocate/deallocate`로 저장 공간을 확보·반납하고, `construct/destroy`로 원소를 생성·파괴합니다. `push_back()`에서 용량이 부족하면 기존 용량의 두 배를 확보하고 원소를 복사합니다.
 
-**맵의 노드 변경을 트리 계층에 맡깁니다.** 삽입·삭제 후 노드 색상과 연결 관계에 따라 회전·재색칠을 수행합니다. 공통 말단 노드를 사용하며 트리 반복자는 부모·자식 연결을 따라 순회합니다. 현재 `find/count/lower_bound/upper_bound`와 삽입 전 중복 검사는 순차 탐색입니다.
+**맵의 노드 변경을 트리 계층에 맡깁니다.** 삽입·삭제 후 노드 색상과 연결 관계에 따라 회전과 노드 색상 변경을 수행합니다. 공통 말단 노드를 사용하며 트리 반복자는 부모·자식 연결을 따라 순회합니다. 현재 `find/count/lower_bound/upper_bound`와 삽입 전 중복 검사는 순차 탐색입니다.
 
 **반복자와 템플릿 도구를 컨테이너에서 공유합니다.** `enable_if`와 `is_integral`로 개수 인자와 범위 인자를 구분하고, `equal`과 `lexicographical_compare`로 관계 연산자를 구성합니다. 벡터의 범위 생성·삽입은 반복자 간 뺄셈을 사용하는 임의 접근 반복자 기준입니다.
 
@@ -73,8 +73,6 @@ mkdir -p tester
 ```
 
 벡터·맵·스택의 연산 결과를 표준 컨테이너와 비교하고, 상세 값을 `tester/vectors_output`, `tester/maps_output`, `tester/stacks_output`에 기록합니다. [테스터 도입 이력](https://github.com/tjung03/ft_containers/commit/d90ec7a28042c6bfc4a5fd4730b452732de39df8)
-
-Linux/GCC에서 위 사용 예제의 출력과 비교 테스터의 전 항목 `[OK]` 출력을 확인했습니다. 해당 테스터 실행은 환경의 LeakSanitizer 제약으로 누수 검사를 끄고 진행했습니다.
 
 ## 빌드 구성과 호환성
 
