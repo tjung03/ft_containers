@@ -6,20 +6,7 @@ C++의 `vector`, `map`, `stack`을 `ft` 네임스페이스에 구현한 42 Seoul
 
 ## 컨테이너 구현 관계
 
-```mermaid
-flowchart TD
-    V["ft::vector"] --> VA["Allocator 기반 연속 저장 공간"]
-    S["ft::stack"] -->|"기본 underlying container"| V
-
-    M["ft::map"] --> T["red_black_tree"]
-    T --> N["rb_node"]
-
-    V --> I["iterator.hpp<br/>Iterator / Reverse Iterator"]
-    T --> I
-
-    V --> U["utils.hpp<br/>enable_if · is_integral · pair · 비교 함수"]
-    M --> U
-```
+![ft::vector, ft::stack, ft::map과 red_black_tree, iterator, template utility의 구현 관계](docs/images/container-relationships.svg)
 
 `stack`은 기본 컨테이너로 `ft::vector`를 사용하고, `map`은 삽입·삭제와 순회를 `red_black_tree` 계층에 위임합니다. 반복자와 템플릿 보조 도구는 여러 컨테이너에서 공유합니다.
 
