@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="330" viewBox="0 0 1000 330" role="img" aria-labelledby="title desc">
+<title id="title">ft_containers · 공통 구현 도구</title>
+<desc id="desc">iterator.hpp는 vector와 red_black_tree에서 사용하는 전용 반복자와 reverse iterator를 제공한다. utils.hpp는 vector, map, red_black_tree에서 사용하는 enable_if, is_integral, pair와 비교 함수를 제공한다.</desc>
+<rect width="1000" height="330" rx="16" fill="#f8fafc"/>
+<g font-family="Arial,'Noto Sans CJK KR','Malgun Gothic',sans-serif">
+<text x="32" y="44" font-size="27" font-weight="700" fill="#17253b">ft_containers · 공통 구현 도구</text>
+<text x="32" y="74" font-size="16" fill="#4b5e78">반복자와 Template Utility를 컨테이너 구현에서 공유</text>
+
+<rect x="32" y="108" width="936" height="174" rx="12" fill="#ecf8f4" stroke="#a9d5c6"/>
+
+<rect x="72" y="142" width="400" height="106" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="96" y="176" font-size="20" font-weight="700" fill="#086b62">iterator.hpp</text>
+<text x="96" y="207" font-size="15" fill="#263a54">vector_iterator · rb_tree_iterator</text>
+<text x="96" y="232" font-size="15" fill="#263a54">const · reverse iterator · iterator_traits</text>
+
+<rect x="528" y="142" width="400" height="106" rx="12" fill="#fff" stroke="#cbd5e1"/>
+<text x="552" y="176" font-size="20" font-weight="700" fill="#086b62">utils.hpp</text>
+<text x="552" y="207" font-size="15" fill="#263a54">enable_if · is_integral · pair</text>
+<text x="552" y="232" font-size="15" fill="#263a54">equal · lexicographical_compare</text>
+
+<text x="72" y="306" font-size="14" fill="#475569">사용 범위: iterator.hpp → vector · red_black_tree / utils.hpp → vector · map · red_black_tree</text>
+</g></svg>
