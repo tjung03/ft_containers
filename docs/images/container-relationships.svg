@@ -1,42 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
-<title id="title">ft_containers · 구현 관계</title><desc id="desc">ft stack은 기본 컨테이너로 ft vector를 사용한다. ft map은 red_black_tree에 저장과 재균형을 위임하고 tree는 rb_node를 관리한다. vector와 tree는 iterator.hpp의 전용 iterator를 사용하며, vector와 map은 utils.hpp의 template utility를 사용한다.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="390" viewBox="0 0 1000 390" role="img" aria-labelledby="title desc">
+<title id="title">ft_containers · 컨테이너 구현 관계</title>
+<desc id="desc">ft stack은 기본 컨테이너로 ft vector를 사용한다. ft map은 저장과 재균형을 red_black_tree에 위임하고 red_black_tree는 rb_node를 관리한다.</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#64748b"/></marker></defs>
-<rect width="1000" height="540" rx="16" fill="#f8fafc"/>
+<rect width="1000" height="390" rx="16" fill="#f8fafc"/>
 <g font-family="Arial,'Noto Sans CJK KR','Malgun Gothic',sans-serif">
-<text x="32" y="44" font-size="27" font-weight="700" fill="#17253b">ft_containers · 구현 관계</text>
-<text x="32" y="74" font-size="16" fill="#4b5e78">Container · Storage · Tree · Iterator · Template Utility</text>
+<text x="32" y="44" font-size="27" font-weight="700" fill="#17253b">ft_containers · 컨테이너 구현 관계</text>
+<text x="32" y="74" font-size="16" fill="#4b5e78">Adapter와 Associative Container의 핵심 구현 계층</text>
 
-<rect x="32" y="104" width="936" height="116" rx="12" fill="#edf2ff" stroke="#b8c7e3"/>
-<text x="52" y="136" font-size="17" font-weight="700" fill="#4865a0">01  Sequence / Adapter</text>
-<rect x="205" y="130" width="205" height="66" rx="10" fill="#fff" stroke="#cbd5e1"/>
-<text x="225" y="158" font-size="19" font-weight="700" fill="#163b76">ft::stack</text>
-<text x="225" y="182" font-size="14" fill="#263a54">LIFO Adapter</text>
-<rect x="545" y="130" width="245" height="66" rx="10" fill="#fff" stroke="#cbd5e1"/>
-<text x="565" y="158" font-size="19" font-weight="700" fill="#163b76">ft::vector</text>
-<text x="565" y="182" font-size="14" fill="#263a54">Allocator 기반 연속 저장 공간</text>
-<path d="M410 163 H535" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="433" y="150" font-size="13" fill="#64748b">기본 Container</text>
+<rect x="32" y="108" width="936" height="105" rx="12" fill="#edf2ff" stroke="#b8c7e3"/>
+<text x="54" y="140" font-size="17" font-weight="700" fill="#4865a0">Sequence / Adapter</text>
+<rect x="210" y="130" width="220" height="62" rx="10" fill="#fff" stroke="#cbd5e1"/>
+<text x="230" y="158" font-size="19" font-weight="700" fill="#163b76">ft::stack</text>
+<text x="230" y="181" font-size="14" fill="#263a54">LIFO Adapter</text>
+<rect x="570" y="130" width="220" height="62" rx="10" fill="#fff" stroke="#cbd5e1"/>
+<text x="590" y="158" font-size="19" font-weight="700" fill="#163b76">ft::vector</text>
+<text x="590" y="181" font-size="14" fill="#263a54">연속 저장 공간</text>
+<path d="M430 161 H560" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="466" y="148" font-size="13" fill="#64748b">기본 Container</text>
 
-<rect x="32" y="236" width="936" height="116" rx="12" fill="#fff" stroke="#b8c7e3"/>
-<text x="52" y="268" font-size="17" font-weight="700" fill="#4865a0">02  Associative Container</text>
-<rect x="155" y="262" width="190" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
-<text x="175" y="301" font-size="19" font-weight="700" fill="#163b76">ft::map</text>
-<rect x="405" y="262" width="220" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
-<text x="425" y="290" font-size="18" font-weight="700" fill="#163b76">red_black_tree</text>
-<text x="425" y="314" font-size="14" fill="#263a54">삽입 · 삭제 · 재균형</text>
-<rect x="685" y="262" width="160" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
-<text x="705" y="301" font-size="18" font-weight="700" fill="#163b76">rb_node</text>
-<path d="M345 295 H395" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="354" y="282" font-size="12" fill="#64748b">저장 위임</text>
-<path d="M625 295 H675" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-
-<rect x="32" y="368" width="936" height="140" rx="12" fill="#ecf8f4" stroke="#a9d5c6"/>
-<text x="52" y="400" font-size="17" font-weight="700" fill="#086b62">03  공통 구현 도구</text>
-<rect x="155" y="414" width="300" height="68" rx="10" fill="#fff" stroke="#cbd5e1"/>
-<text x="175" y="442" font-size="17" font-weight="700" fill="#086b62">iterator.hpp</text>
-<text x="175" y="466" font-size="14" fill="#263a54">vector · red_black_tree에서 사용</text>
-<rect x="545" y="414" width="300" height="68" rx="10" fill="#fff" stroke="#cbd5e1"/>
-<text x="565" y="442" font-size="17" font-weight="700" fill="#086b62">utils.hpp</text>
-<text x="565" y="466" font-size="14" fill="#263a54">vector · map · red_black_tree에서 사용</text>
-
+<rect x="32" y="235" width="936" height="117" rx="12" fill="#fff" stroke="#b8c7e3"/>
+<text x="54" y="267" font-size="17" font-weight="700" fill="#4865a0">Associative Container</text>
+<rect x="145" y="260" width="190" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
+<text x="165" y="299" font-size="19" font-weight="700" fill="#163b76">ft::map</text>
+<rect x="405" y="260" width="220" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
+<text x="425" y="288" font-size="18" font-weight="700" fill="#163b76">red_black_tree</text>
+<text x="425" y="312" font-size="14" fill="#263a54">삽입 · 삭제 · 재균형</text>
+<rect x="695" y="260" width="160" height="66" rx="10" fill="#f5f8ff" stroke="#cbd5e1"/>
+<text x="715" y="299" font-size="18" font-weight="700" fill="#163b76">rb_node</text>
+<path d="M335 293 H395" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M625 293 H685" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 </g></svg>
