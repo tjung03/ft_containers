@@ -6,9 +6,15 @@ C++의 `vector`, `map`, `stack`을 `ft` 네임스페이스에 구현한 42 Seoul
 
 ## 컨테이너 구현 관계
 
-![ft::vector, ft::stack, ft::map과 red_black_tree, iterator, template utility의 구현 관계](docs/images/container-relationships.svg)
+![ft::stack과 ft::vector, ft::map과 red_black_tree 및 rb_node의 핵심 구현 관계](docs/images/container-relationships.svg)
 
-`stack`은 기본 컨테이너로 `ft::vector`를 사용하고, `map`은 삽입·삭제와 순회를 `red_black_tree` 계층에 위임합니다. 반복자와 템플릿 보조 도구는 여러 컨테이너에서 공유합니다.
+`stack`은 기본 컨테이너로 `ft::vector`를 사용하고, `map`은 삽입·삭제와 순회를 `red_black_tree` 계층에 위임합니다.
+
+### 공통 구현 도구
+
+![vector와 red_black_tree에서 사용하는 반복자와 여러 컨테이너에서 공유하는 Template Utility](docs/images/shared-components.svg)
+
+`iterator.hpp`에는 vector·Red-Black Tree용 반복자와 역방향 반복자를, `utils.hpp`에는 `enable_if`, `is_integral`, `pair`, 구간 비교 함수를 구현했습니다.
 
 ## 구현과 코드 구조
 
