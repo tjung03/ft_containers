@@ -33,6 +33,7 @@ namespace	ft
 		typedef	ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
 	private:
+		// 검은 _leaf는 빈 자식과 end()의 공통 sentinel이며, _root도 초기에는 이를 가리킨다.
 		node_ptr		_root;
 		node_ptr		_leaf;
 		size_type		_size;
@@ -238,6 +239,7 @@ namespace	ft
 			this->_root = cur;
 		}
 
+		// --end()가 최댓값 노드로 이동하도록 sentinel의 parent를 가장 오른쪽 노드로 갱신한다.
 		void	update_leaf_parent(node_ptr cur)
 		{
 			while (cur->_right != this->_leaf)
@@ -324,6 +326,7 @@ namespace	ft
 				insert_case3(n);
 		}
 
+		// 부모와 삼촌이 모두 빨간색이면 색을 바꾸고 조부모부터 다시 균형을 확인한다.
 		void	insert_case3(node_ptr n)
 		{
 			node_ptr	u = uncle(n);
@@ -394,6 +397,7 @@ namespace	ft
 				n->_parent->_right = child;
 		}
 
+		// 검은 노드를 제거하면 대체 자식의 색에 따라 삭제 재균형 경로를 선택한다.
 		void	delete_one_child(node_ptr n)
 		{
 			node_ptr	child = is_leaf(n->_right) ? n->_left : n->_right;
